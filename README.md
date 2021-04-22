@@ -82,14 +82,14 @@ From the help function of the main script
 >
 > Usage: ./download_data.sh [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>] [-b <max_lon>] [-c <min_lat>] [-d <max_lat>] [-f <downoad_file_name>]
 > 
-> -v <variable>: variable name for the dataset on ADS
-> -s <start_date>: start date for the period of data downloaded from ADS
-> -e <end_date>: end date for the period of data downloaded from ADS
-> -a <min_lon>: minimum longitude for the area of data downloaded from ADS
-> -b <max_lon>: maximum longitude for the area of data downloaded from ADS
-> -c <min_lat>: minimum latitude for the area of data downloaded from ADS
-> -d <max_lat>: maximum latitude for the area of data downloaded from ADS
-> -f <downoad_file_name>: name of the file containing data downloaded from ADS
+> -v <variable>: variable name for the dataset on ADS\
+> -s <start_date>: start date for the period of data downloaded from ADS\
+> -e <end_date>: end date for the period of data downloaded from ADS\
+> -a <min_lon>: minimum longitude for the area of data downloaded from ADS\
+> -b <max_lon>: maximum longitude for the area of data downloaded from ADS\
+> -c <min_lat>: minimum latitude for the area of data downloaded from ADS\
+> -d <max_lat>: maximum latitude for the area of data downloaded from ADS\
+> -f <downoad_file_name>: name of the file containing data downloaded from ADS\
 
 __________________________________________________________________________________
 
