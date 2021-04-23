@@ -2,10 +2,10 @@ import cdsapi
 import sys
 """
 Usage:
-$ python3 api_request.py <variable> <start_date> <end_date> <min_lon> <max_lon> <min_lat> <max_lat> <downoad_file_name>
+$ python3 api_request.py <variable> <start_date> <end_date> <min_lon> <max_lon> <min_lat> <max_lat> <downoad_file_name> <debug_mode>
 """
 
-variable, start_date, end_date, min_lon, max_lon, min_lat, max_lat, downoad_file_name = sys.argv
+_, variable, start_date, end_date, min_lon, max_lon, min_lat, max_lat, download_file_name, debug_mode = sys.argv
 
 def main(argv):
 
@@ -26,6 +26,9 @@ def main(argv):
             ],
         },
          download_file_name)
+    
+    if debug_mode == 'true':
+        print("GRIB data has been saved to ", download_file_name)
 
 if __name__ == "__main__":
    main(sys.argv)

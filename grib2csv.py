@@ -8,7 +8,7 @@ def main(argv):
    output_file = ''
 
    try:
-      opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+      opts, args = getopt.getopt(argv,"hi:o:d:",["ifile=","ofile=","debug_mode="])
 
    except getopt.GetoptError:
       print('grib2csv.py -i <input_file> -o <output_file>')
@@ -22,8 +22,11 @@ def main(argv):
          input_file = arg
       elif opt in ("-o", "--output"):
          output_file = arg
-   print('Input file is ', input_file)
-   print('Output file is ', output_file)
+      elif opt in ("-d", "--debug"):
+         debug_mode = arg
+   if debug_mode == 'true':
+      print('Input file is ', input_file)
+      print('Output file is ', output_file)
 
    with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
       [f_out.write(','.join(line.split()) + '\n') for line in f_in]
