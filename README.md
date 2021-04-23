@@ -80,7 +80,7 @@ The arguments that the script accepts are:
 From the help function of the main script
 > $ ./download_data.sh -h
 >
-> Usage: ./download_data.sh [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>] [-b <max_lon>] [-c <min_lat>] [-d <max_lat>] [-f <downoad_file_name>]
+> Usage: ./download_data.sh [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>] [-b <max_lon>] [-c <min_lat>] [-d <max_lat>] [-f <downoad_file_name>] [-x]
 > 
 > -v <variable>: variable name for the dataset on ADS\
 > -s <start_date>: start date for the period of data downloaded from ADS\
