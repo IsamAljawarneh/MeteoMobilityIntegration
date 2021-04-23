@@ -14,6 +14,7 @@ Usage: $PROGNAME [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>
 -c <min_lat>: minimum latitude for the area of data downloaded from ADS
 -d <max_lat>: maximum latitude for the area of data downloaded from ADS
 -f <downoad_file_name>: name of the final file containing data downloaded from ADS in CSV format
+-x <debug_mode>: if present, skips deletion of temporary files, logs the API request logs and shows the variables recognized by the script
 
 EOF
   exit 1
