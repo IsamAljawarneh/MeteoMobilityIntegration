@@ -26,7 +26,7 @@ def main(argv):
          debug_mode = arg
    if debug_mode == 'true':
       print('Input file is ', input_file)
-      print('Output file is ', output_file)
+      print('Output file is data/', output_file)
 
    with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
       [f_out.write(','.join(line.split()) + '\n') for line in f_in]
