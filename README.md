@@ -73,6 +73,8 @@ The arguments that the script accepts are:
 
 **download_name** is the name of the file we want to create with the final data in CSV format. The default value is `structured_data.csv`.
 
+**debug_mode**: if this flag is present, the automation script sskips deletion of temporary files, prints the API request logs and shows the variables recognized by the script itself.
+
 
 ## Usage
 
@@ -90,7 +92,7 @@ From the help function of the main script
 > -c <min_lat>: minimum latitude for the area of data downloaded from ADS\
 > -d <max_lat>: maximum latitude for the area of data downloaded from ADS\
 > -f <downoad_file_name>: name of the file containing data downloaded from ADS\
-> -x <debug_mode>: if present, skips deletion of temporary files, logs the API request logs and shows the variables recognized by the script
+> -x <debug_mode>: if present, skips deletion of temporary files, logs the API request logs and shows the variables recognized by the automation script
 
 __________________________________________________________________________________
 
