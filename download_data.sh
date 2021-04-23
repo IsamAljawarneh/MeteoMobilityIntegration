@@ -4,7 +4,7 @@ PROGNAME=$0
 
 usage() {
   cat << EOF >&2
-Usage: $PROGNAME [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>] [-b <max_lon>] [-c <min_lat>] [-d <max_lat>] [-f <downoad_file_name>]
+Usage: $PROGNAME [-v <variable>] [-s <start_date>] [-e <end_date>] [-a <min_lon>] [-b <max_lon>] [-c <min_lat>] [-d <max_lat>] [-f <downoad_file_name>] [-x]
 
 -v <variable>: variable name for the dataset on ADS
 -s <start_date>: start date for the period of data downloaded from ADS
@@ -87,8 +87,9 @@ sed -e "s/$(cat "$STRUCTURED_CSV_FILENAME")//" "$GRIB_STRUCTURED_FILENAME" | sed
 
 python3 utils/grib2csv.py -i "$STRUCTURED_CSV_FILENAME" -o data/"$downoad_file_name" -d "$debug_mode"
 
-echo "The data has been saved at $downoad_file_name"
+echo "The data has been saved at data/$downoad_file_name"
 if [ "$debug_mode" == false ]; 
 then
 	rm "$GRIB_DATA_FILENAME" "$GRIB_STRUCTURED_FILENAME" "$STRUCTURED_CSV_FILENAME"
+	rm "$REQUEST_LOG_FILENAME" || true
 fi
