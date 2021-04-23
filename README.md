@@ -90,6 +90,7 @@ From the help function of the main script
 > -c <min_lat>: minimum latitude for the area of data downloaded from ADS\
 > -d <max_lat>: maximum latitude for the area of data downloaded from ADS\
 > -f <downoad_file_name>: name of the file containing data downloaded from ADS\
+> -x <debug_mode>: if present, skips deletion of temporary files, logs the API request logs and shows the variables recognized by the script
 
 __________________________________________________________________________________
 
