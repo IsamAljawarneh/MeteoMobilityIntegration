@@ -24,7 +24,7 @@ REQUEST_LOG_FILENAME='request.log'
 GRIB_DATA_FILENAME='download.grib'
 GRIB_GET_FILENAME='csv_grib.csv'
 STRUCTURED_CSV_FILENAME='structured_data.csv'
-GRIB_COLUMNS='time,shortName'
+GRIB_COLUMNS='dataDate,time,shortName'
 
 variable='particulate_matter_10um'
 start_date='2020-01-01'
