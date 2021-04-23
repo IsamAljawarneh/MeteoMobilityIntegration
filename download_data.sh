@@ -22,7 +22,7 @@ EOF
 
 REQUEST_LOG_FILENAME='request.log'
 GRIB_DATA_FILENAME='download.grib'
-GRIB_GET_FILENAME='csv_grib.csv'
+GRIB_STRUCTURED_FILENAME='csv_grib.csv'
 STRUCTURED_CSV_FILENAME='structured_data.csv'
 GRIB_COLUMNS='dataDate,time,shortName'
 
@@ -73,22 +73,22 @@ if [ "$debug_mode" == true ];
 then
 	echo "=============================================================="
 	echo "API REQUEST LOGS:"
-	python3 api_request_template.py "$variable" "$start_date" "$end_date" "$min_lon" "$max_lon" "$min_lat" "$max_lat" "$GRIB_DATA_FILENAME" "$debug_mode" &> "$REQUEST_LOG_FILENAME"
+	python3 utils/api_request_template.py "$variable" "$start_date" "$end_date" "$min_lon" "$max_lon" "$min_lat" "$max_lat" "$GRIB_DATA_FILENAME" "$debug_mode" &> "$REQUEST_LOG_FILENAME"
 	cat "$REQUEST_LOG_FILENAME"
 	echo "=============================================================="
 else
-	python3 api_request_template.py "$variable" "$start_date" "$end_date" "$min_lon" "$max_lon" "$min_lat" "$max_lat" "$GRIB_DATA_FILENAME" "$debug_mode" &> /dev/null
+	python3 utils/api_request_template.py "$variable" "$start_date" "$end_date" "$min_lon" "$max_lon" "$min_lat" "$max_lat" "$GRIB_DATA_FILENAME" "$debug_mode" &> /dev/null
 fi
 
-grib_get_data -p "$GRIB_COLUMNS" "$GRIB_DATA_FILENAME" | sed -e 's/,//g' > "$GRIB_GET_FILENAME"
+grib_get_data -p "$GRIB_COLUMNS" "$GRIB_DATA_FILENAME" | sed -e 's/,//g' > "$GRIB_STRUCTURED_FILENAME"
 
-head -n 1 "$GRIB_GET_FILENAME" > "$STRUCTURED_CSV_FILENAME"
-sed -e "s/$(cat "$STRUCTURED_CSV_FILENAME")//" "$GRIB_GET_FILENAME" | sed -e '/^$/d' >> "$STRUCTURED_CSV_FILENAME"
+head -n 1 "$GRIB_STRUCTURED_FILENAME" > "$STRUCTURED_CSV_FILENAME"
+sed -e "s/$(cat "$STRUCTURED_CSV_FILENAME")//" "$GRIB_STRUCTURED_FILENAME" | sed -e '/^$/d' >> "$STRUCTURED_CSV_FILENAME"
 
-python3 grib2csv.py -i "$STRUCTURED_CSV_FILENAME" -o "$downoad_file_name" -d "$debug_mode"
+python3 utils/grib2csv.py -i "$STRUCTURED_CSV_FILENAME" -o data/"$downoad_file_name" -d "$debug_mode"
 
 echo "The data has been saved at $downoad_file_name"
 if [ "$debug_mode" == false ]; 
 then
-	rm "$GRIB_DATA_FILENAME" "$GRIB_GET_FILENAME" "$STRUCTURED_CSV_FILENAME"
+	rm "$GRIB_DATA_FILENAME" "$GRIB_STRUCTURED_FILENAME" "$STRUCTURED_CSV_FILENAME"
 fi
