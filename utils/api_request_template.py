@@ -21,8 +21,8 @@ def main(argv):
                 '12:00', '15:00',
             ],
             'area': [
-                int(min_lon), int(min_lat), int(max_lon),
-                int(max_lat),
+                float(max_lat), float(min_lon), float(min_lat),
+                float(max_lon),
             ],
         },
          download_file_name)
